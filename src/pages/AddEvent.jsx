@@ -8,7 +8,7 @@ export const AddEvent = () => {
 
   const createEvent = async (newEvent) => {
     try {
-      const response = await fetch("http://localhost:3000/events", {
+      const response = await fetch("https://sherpaserver.onrender.com/events", {
         method: "POST",
         headers: { "Content-Type": "application/json;charset=utf-8" },
         body: JSON.stringify(newEvent),

@@ -24,11 +24,14 @@ export const EventPage = () => {
 
   const updateEvent = async (updatedEvent) => {
     try {
-      const response = await fetch(`http://localhost:3000/events/${event.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json;charset=utf-8" },
-        body: JSON.stringify(updatedEvent),
-      });
+      const response = await fetch(
+        `https://sherpaserver.onrender.com/events/${event.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json;charset=utf-8" },
+          body: JSON.stringify(updatedEvent),
+        }
+      );
       if (response.ok) {
         setUpdatedEvent(updatedEvent);
         toast({
@@ -54,9 +57,12 @@ export const EventPage = () => {
 
   const deleteEvent = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/events/${event.id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://sherpaserver.onrender.com/events/${event.id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (response.ok) {
         toast({
@@ -154,14 +160,14 @@ export const EventPage = () => {
 
 export const eventLoader = async ({ params }) => {
   const eventResponse = await fetch(
-    `http://localhost:3000/events/${params.eventId}`
+    `https://sherpaserver.onrender.com/${params.eventId}`
   );
   const event = await eventResponse.json();
 
   const [userResponse, usersResponse, categoryResponse] = await Promise.all([
-    fetch(`http://localhost:3000/users/${event.createdBy}`),
-    fetch("http://localhost:3000/users/"),
-    fetch("http://localhost:3000/categories/"),
+    fetch(`https://sherpaserver.onrender.com/users/${event.createdBy}`),
+    fetch("https://sherpaserver.onrender.com/users/"),
+    fetch("https://sherpaserver.onrender.com/categories/"),
   ]);
 
   return {

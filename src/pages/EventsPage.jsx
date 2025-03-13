@@ -20,7 +20,9 @@ export const EventsPage = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3000/events");
+        const response = await fetch(
+          "https://sherpaserver.onrender.com/events"
+        );
 
         if (response.ok) {
           const json = await response.json();
