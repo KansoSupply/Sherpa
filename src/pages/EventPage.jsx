@@ -131,9 +131,9 @@ export const EventPage = () => {
             fontWeight="bold"
             letterSpacing="-0.05em"
           >
-            {updatedEvent.startTime.slice(0, 10)}{" "}
+            {/* {updatedEvent.startTime.slice(0, 10)}{" "}
             {updatedEvent.startTime.slice(11, 16)} —{" "}
-            {updatedEvent.endTime.slice(11, 16)}
+            {updatedEvent.endTime.slice(11, 16)} */}
           </Text>
           <Text maxWidth="300px" textAlign="center">
             {updatedEvent.description}
